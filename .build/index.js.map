@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../index.ts"],
+  "sourcesContent": ["import Cliente from \"./models/Cliente\";\nimport Domicilio from \"./models/domicilio\";\nimport ObraSocial from \"./models/obraSocial\";\n\nlet osde:ObraSocial = new ObraSocial(\"OSDE\", 1);\nlet domicilio:Domicilio = new Domicilio(\"Calle falsa\", 1, \"Localidad Falsa\", \"Provincia falsa\", 123)\nlet cliente:Cliente = new Cliente(\"Nombre\", 1, \"Apellido\", 4081191, 2313123, domicilio, osde)\nconsole.log(JSON.stringify(cliente))\nconsole.log(cliente)"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA,qBAAoB;AACpB,uBAAsB;AACtB,wBAAuB;AAEvB,IAAI,OAAkB,IAAI,0BAAW,QAAQ;AAC7C,IAAI,YAAsB,IAAI,yBAAU,eAAe,GAAG,mBAAmB,mBAAmB;AAChG,IAAI,UAAkB,IAAI,uBAAQ,UAAU,GAAG,YAAY,SAAS,SAAS,WAAW;AACxF,QAAQ,IAAI,KAAK,UAAU;AAC3B,QAAQ,IAAI;",
+  "names": []
+}

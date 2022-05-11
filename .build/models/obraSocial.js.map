@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../models/obraSocial.ts"],
+  "sourcesContent": ["class ObraSocial {\n  id: number;\n  nombre: string;\n\n  constructor(nombre:string, id:number) {\n    this.nombre = nombre;\n    this.id = id;\n  }\n}\n\nexport default ObraSocial;"],
+  "mappings": ";;;;;;;AAAA;AAAA;AAAA;AAAA,iBAAiB;AAAA,EACf;AAAA,EACA;AAAA,EAEA,YAAY,QAAe,IAAW;AACpC,SAAK,SAAS;AACd,SAAK,KAAK;AAAA;AAAA;AAId,IAAO,qBAAQ;",
+  "names": []
+}
