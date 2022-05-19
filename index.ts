@@ -15,13 +15,10 @@ let laboratorio: Laboratorio = new Laboratorio("Laboratorio Falso", 1);
 let productoUno: Producto = new Producto(1, "Tipo Falso", "Un producto falso", 200, laboratorio, 1234);
 let productoDos: Producto = new Producto(2, "Tipo Verdadero", "Un producto verdadero", 300, laboratorio, 124);
 let formaDePago :FormaDePago = new FormaDePago("Tarjeta", 1);
-let empleadoEncargado: Empleado = new Empleado(1, "Empleado Encargado", "Trinidad", 40811091, "20-40811091-3", domicilio, osde, 1111111 )
+let empleadoEncargado: Empleado = new Empleado(1, "Empleado Encargado", "Trinidad", 40811091, "20-40811091-3", domicilio, osde, 1111111);
 let sucursal: Sucursal = new Sucursal("Sucursal 1", 1, domicilio, empleadoEncargado);
-let empleadoVenta: Empleado = new Empleado(1, "Empleado venta", "Apellido", 40811091, "20-40811091-3", domicilio, osde, 1234, sucursal );
-let empleadoCaja: Empleado = new Empleado(1, "Empleado caja", "Apellido Cja", 1234123123, "20-1234123123-3", domicilio, osde, 12346234, sucursal );
-//console.log(JSON.stringify(cliente))
-//console.log(cliente);
-
+let empleadoVenta: Empleado = new Empleado(1, "Empleado venta", "Apellido", 40811091, "20-40811091-3", domicilio, osde, 1234, sucursal);
+let empleadoCaja: Empleado = new Empleado(1, "Empleado caja", "Apellido Cja", 1234123123, "20-1234123123-3", domicilio, osde, 12346234, sucursal);
 
 let ventaUno: Venta = new Venta(1, new Date, "123123", formaDePago, empleadoCaja, empleadoVenta, cliente, [productoUno, productoDos]);
 
