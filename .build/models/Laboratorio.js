@@ -6,23 +6,17 @@ var __export = (target, all) => {
     __defProp(target, name, { get: all[name], enumerable: true });
 };
 __export(exports, {
-  default: () => domicilio_default
+  default: () => Laboratorio_default
 });
-class Domicilio {
+class Laboratorio {
   id;
-  calle;
-  numero;
-  localidad;
-  provincia;
-  constructor(calle, id, localidad, provincia, numero) {
-    this.calle = calle;
+  nombre;
+  constructor(nombre, id) {
+    this.nombre = nombre;
     this.id = id;
-    this.numero = numero;
-    this.localidad = localidad;
-    this.provincia = provincia;
   }
 }
-var domicilio_default = Domicilio;
+var Laboratorio_default = Laboratorio;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {});
-//# sourceMappingURL=domicilio.js.map
+//# sourceMappingURL=Laboratorio.js.map

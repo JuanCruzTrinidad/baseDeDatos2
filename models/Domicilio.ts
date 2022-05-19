@@ -5,8 +5,6 @@ class Domicilio {
   localidad: string;
   provincia: string;
 
-  
-
   constructor(calle:string, id:number, localidad:string, provincia:string, numero:number) {
     this.calle = calle;
     this.id = id;

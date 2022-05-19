@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../models/Sucursal.ts"],
+  "sourcesContent": ["import Domicilio from \"./Domicilio\";\nimport Empleado from \"./Empleado\";\n\nclass Sucursal {\n  id: number;\n  nombre: string;\n  domicilio: Domicilio;\n  encargado?: Empleado;\n\n  constructor(nombre:string, id:number, domicilio: Domicilio, encargado?: Empleado) {\n    this.nombre = nombre;\n    this.id = id;\n    this.domicilio = domicilio;\n    this.encargado = encargado;\n  }\n}\n\nexport default Sucursal;"],
+  "mappings": ";;;;;;;AAAA;AAAA;AAAA;AAGA,eAAe;AAAA,EACb;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EAEA,YAAY,QAAe,IAAW,WAAsB,WAAsB;AAChF,SAAK,SAAS;AACd,SAAK,KAAK;AACV,SAAK,YAAY;AACjB,SAAK,YAAY;AAAA;AAAA;AAIrB,IAAO,mBAAQ;",
+  "names": []
+}

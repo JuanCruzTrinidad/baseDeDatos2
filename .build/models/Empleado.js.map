@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../models/Empleado.ts"],
+  "sourcesContent": ["import Domicilio from \"./Domicilio\";\nimport ObraSocial from \"./ObraSocial\";\nimport Sucursal from \"./Sucursal\";\n\nclass Empleado {\n  id: number;\n  nombre: string;\n  apellido: string;\n  dni: number;\n  cuil: string;\n  domicilio: Domicilio;\n  obraSocial: ObraSocial;\n  numeroAfiliado: number;\n  sucursal?: Sucursal;\n\n  constructor(id: number, nombre: string, apellido: string, dni: number, cuil: string, domicilio: Domicilio, obraSocial: ObraSocial, numeroAfiliado: number, sucursal?: Sucursal)  {\n    this.id = id;\n    this.nombre = nombre;\n    this.apellido = apellido;\n    this.dni = dni;\n    this.cuil = cuil;\n    this.domicilio = domicilio;\n    this.obraSocial = obraSocial\n    this.numeroAfiliado = numeroAfiliado;\n    this.sucursal = sucursal;\n  }\n}\nexport default Empleado;"],
+  "mappings": ";;;;;;;AAAA;AAAA;AAAA;AAIA,eAAe;AAAA,EACb;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EAEA,YAAY,IAAY,QAAgB,UAAkB,KAAa,MAAc,WAAsB,YAAwB,gBAAwB,UAAsB;AAC/K,SAAK,KAAK;AACV,SAAK,SAAS;AACd,SAAK,WAAW;AAChB,SAAK,MAAM;AACX,SAAK,OAAO;AACZ,SAAK,YAAY;AACjB,SAAK,aAAa;AAClB,SAAK,iBAAiB;AACtB,SAAK,WAAW;AAAA;AAAA;AAGpB,IAAO,mBAAQ;",
+  "names": []
+}

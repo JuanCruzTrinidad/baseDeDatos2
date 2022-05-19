@@ -1,5 +1,5 @@
-import Domicilio from "./domicilio";
-import ObraSocial from "./obraSocial";
+import Domicilio from "./Domicilio";
+import ObraSocial from "./ObraSocial";
 
 class Cliente {
   id: number;

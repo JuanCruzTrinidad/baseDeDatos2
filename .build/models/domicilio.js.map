@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../models/domicilio.ts"],
-  "sourcesContent": ["class Domicilio {\n  id: number;\n  calle: string;\n  numero: number;\n  localidad: string;\n  provincia: string;\n\n  \n\n  constructor(calle:string, id:number, localidad:string, provincia:string, numero:number) {\n    this.calle = calle;\n    this.id = id;\n    this.numero = numero;\n    this.localidad = localidad;\n    this.provincia = provincia;\n  }\n}\n\nexport default Domicilio;"],
-  "mappings": ";;;;;;;AAAA;AAAA;AAAA;AAAA,gBAAgB;AAAA,EACd;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EAIA,YAAY,OAAc,IAAW,WAAkB,WAAkB,QAAe;AACtF,SAAK,QAAQ;AACb,SAAK,KAAK;AACV,SAAK,SAAS;AACd,SAAK,YAAY;AACjB,SAAK,YAAY;AAAA;AAAA;AAIrB,IAAO,oBAAQ;",
-  "names": []
-}

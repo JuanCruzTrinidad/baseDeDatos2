@@ -6,17 +6,23 @@ var __export = (target, all) => {
     __defProp(target, name, { get: all[name], enumerable: true });
 };
 __export(exports, {
-  default: () => obraSocial_default
+  default: () => Domicilio_default
 });
-class ObraSocial {
+class Domicilio {
   id;
-  nombre;
-  constructor(nombre, id) {
-    this.nombre = nombre;
+  calle;
+  numero;
+  localidad;
+  provincia;
+  constructor(calle, id, localidad, provincia, numero) {
+    this.calle = calle;
     this.id = id;
+    this.numero = numero;
+    this.localidad = localidad;
+    this.provincia = provincia;
   }
 }
-var obraSocial_default = ObraSocial;
+var Domicilio_default = Domicilio;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {});
-//# sourceMappingURL=obraSocial.js.map
+//# sourceMappingURL=Domicilio.js.map

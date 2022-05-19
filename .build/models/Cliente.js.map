@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../models/Cliente.ts"],
-  "sourcesContent": ["import Domicilio from \"./domicilio\";\nimport ObraSocial from \"./obraSocial\";\n\nclass Cliente {\n  id: number;\n  nombre: string;\n  apellido: string;\n  dni: number;\n  numeroAfiliado: number;\n  domicilio: Domicilio\n  obraSocial: ObraSocial\n\n  constructor(nombre:string, id:number, apellido:string, dni:number, numeroAfiliado:number, domicilio:Domicilio, obraSocial:ObraSocial) {\n    this.nombre = nombre;\n    this.id = id;\n    this.apellido = apellido;\n    this.dni = dni;\n    this.numeroAfiliado = numeroAfiliado;\n    this.domicilio = domicilio;\n    this.obraSocial = obraSocial\n  }\n}\n\nexport default Cliente;"],
+  "sourcesContent": ["import Domicilio from \"./Domicilio\";\nimport ObraSocial from \"./ObraSocial\";\n\nclass Cliente {\n  id: number;\n  nombre: string;\n  apellido: string;\n  dni: number;\n  numeroAfiliado: number;\n  domicilio: Domicilio\n  obraSocial: ObraSocial\n\n  constructor(nombre:string, id:number, apellido:string, dni:number, numeroAfiliado:number, domicilio:Domicilio, obraSocial:ObraSocial) {\n    this.nombre = nombre;\n    this.id = id;\n    this.apellido = apellido;\n    this.dni = dni;\n    this.numeroAfiliado = numeroAfiliado;\n    this.domicilio = domicilio;\n    this.obraSocial = obraSocial\n  }\n}\n\nexport default Cliente;"],
   "mappings": ";;;;;;;AAAA;AAAA;AAAA;AAGA,cAAc;AAAA,EACZ;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EAEA,YAAY,QAAe,IAAW,UAAiB,KAAY,gBAAuB,WAAqB,YAAuB;AACpI,SAAK,SAAS;AACd,SAAK,KAAK;AACV,SAAK,WAAW;AAChB,SAAK,MAAM;AACX,SAAK,iBAAiB;AACtB,SAAK,YAAY;AACjB,SAAK,aAAa;AAAA;AAAA;AAItB,IAAO,kBAAQ;",
   "names": []
 }

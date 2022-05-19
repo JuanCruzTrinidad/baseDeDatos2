@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../models/Laboratorio.ts"],
+  "sourcesContent": ["class Laboratorio {\n  id: number;\n  nombre: string;\n\n  constructor(nombre:string, id:number) {\n    this.nombre = nombre;\n    this.id = id;\n  }\n}\n\nexport default Laboratorio;"],
+  "mappings": ";;;;;;;AAAA;AAAA;AAAA;AAAA,kBAAkB;AAAA,EAChB;AAAA,EACA;AAAA,EAEA,YAAY,QAAe,IAAW;AACpC,SAAK,SAAS;AACd,SAAK,KAAK;AAAA;AAAA;AAId,IAAO,sBAAQ;",
+  "names": []
+}

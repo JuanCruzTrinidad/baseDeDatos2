@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../models/Venta.ts"],
+  "sourcesContent": ["import Cliente from \"./Cliente\";\nimport Empleado from \"./Empleado\";\nimport FormaDePago from \"./FormaDePago\";\nimport Producto from \"./Producto\";\n\nclass Venta {\n  id: number;\n  fecha: Date;\n  numTicket: string;\n  total?: number;\n  formaDePago: FormaDePago;\n  empleadoCaja: Empleado;\n  empleadoAsistente: Empleado;\n  cliente: Cliente;\n  productos: Producto[];\n\n  constructor(id: number, fecha: Date, numTicket: string, formaDePago: FormaDePago, empleadoCaja: Empleado, empleadoAsistente: Empleado, cliente: Cliente, productos: Producto[], total?: number) {\n    this.id = id;\n    this.fecha = fecha;\n    this.numTicket = numTicket;\n    this.total = total;\n    this.formaDePago = formaDePago;\n    this.empleadoCaja = empleadoCaja;\n    this.empleadoAsistente = empleadoAsistente;\n    this.cliente = cliente;\n    this.productos = productos;\n  }\n}\n\nexport default Venta;"],
+  "mappings": ";;;;;;;AAAA;AAAA;AAAA;AAKA,YAAY;AAAA,EACV;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EAEA,YAAY,IAAY,OAAa,WAAmB,aAA0B,cAAwB,mBAA6B,SAAkB,WAAuB,OAAgB;AAC9L,SAAK,KAAK;AACV,SAAK,QAAQ;AACb,SAAK,YAAY;AACjB,SAAK,QAAQ;AACb,SAAK,cAAc;AACnB,SAAK,eAAe;AACpB,SAAK,oBAAoB;AACzB,SAAK,UAAU;AACf,SAAK,YAAY;AAAA;AAAA;AAIrB,IAAO,gBAAQ;",
+  "names": []
+}
