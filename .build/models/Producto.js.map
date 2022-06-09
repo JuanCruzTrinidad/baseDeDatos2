@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../models/Producto.ts"],
-  "sourcesContent": ["import Laboratorio from \"./Laboratorio\";\n\nclass Producto {\n  id: number;\n  tipo: string;\n  codigo: number;\n  laboratorio: Laboratorio;\n  descripcion: string;\n  precio: number;\n\n  \n\n  constructor(id:number, tipo:string, descripcion:string, precio:number, laboratorio:Laboratorio, codigo:number) {\n    this.codigo = codigo;\n    this.id = id;\n    this.tipo = tipo;\n    this.descripcion = descripcion;\n    this.precio = precio;\n    this.laboratorio = laboratorio;\n  }\n}\n\nexport default Producto;"],
-  "mappings": ";;;;;;;AAAA;AAAA;AAAA;AAEA,eAAe;AAAA,EACb;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EAIA,YAAY,IAAW,MAAa,aAAoB,QAAe,aAAyB,QAAe;AAC7G,SAAK,SAAS;AACd,SAAK,KAAK;AACV,SAAK,OAAO;AACZ,SAAK,cAAc;AACnB,SAAK,SAAS;AACd,SAAK,cAAc;AAAA;AAAA;AAIvB,IAAO,mBAAQ;",
+  "sourcesContent": ["import Laboratorio from \"./Laboratorio\";\n\nclass Producto {\n  id: number;\n  tipo: string;\n  codigo: number;\n  laboratorio: Laboratorio;\n  descripcion: string;\n  precio: number;\n\n  constructor(id:number, tipo:string, descripcion:string, precio:number, laboratorio:Laboratorio, codigo:number) {\n    this.codigo = codigo;\n    this.id = id;\n    this.tipo = tipo;\n    this.descripcion = descripcion;\n    this.precio = precio;\n    this.laboratorio = laboratorio;\n  }\n}\n\nexport default Producto;"],
+  "mappings": ";;;;;;;AAAA;AAAA;AAAA;AAEA,eAAe;AAAA,EACb;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EAEA,YAAY,IAAW,MAAa,aAAoB,QAAe,aAAyB,QAAe;AAC7G,SAAK,SAAS;AACd,SAAK,KAAK;AACV,SAAK,OAAO;AACZ,SAAK,cAAc;AACnB,SAAK,SAAS;AACd,SAAK,cAAc;AAAA;AAAA;AAIvB,IAAO,mBAAQ;",
   "names": []
 }

@@ -8,8 +8,6 @@ class Producto {
   descripcion: string;
   precio: number;
 
-  
-
   constructor(id:number, tipo:string, descripcion:string, precio:number, laboratorio:Laboratorio, codigo:number) {
     this.codigo = codigo;
     this.id = id;

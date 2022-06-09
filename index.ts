@@ -1,3 +1,4 @@
+import { disconnect, find, getDatabase, insert } from "./configdb";
 import Cliente from "./models/Cliente";
 import Domicilio from "./models/Domicilio";
 import Empleado from "./models/Empleado";
@@ -7,7 +8,8 @@ import ObraSocial from "./models/ObraSocial";
 import Producto from "./models/Producto";
 import Sucursal from "./models/Sucursal";
 import Venta from "./models/Venta";
-                              
+import { Db, MongoClient } from "mongodb";
+ 
 let osde: ObraSocial = new ObraSocial("OSDE", 1);
 let domicilio: Domicilio = new Domicilio("Calle falsa", 1, "Localidad Falsa", "Provincia falsa", 123);
 let cliente: Cliente = new Cliente("Nombre", 1, "Apellido", 4081191, 2313123, domicilio, osde);
@@ -22,4 +24,12 @@ let empleadoCaja: Empleado = new Empleado(1, "Empleado caja", "Apellido Cja", 12
 
 let ventaUno: Venta = new Venta(1, new Date, "123123", formaDePago, empleadoCaja, empleadoVenta, cliente, [productoUno, productoDos]);
 
-console.dir(ventaUno, {depth: null});
+
+async function run() {
+const database = await getDatabase();
+// await insert('cliente', {})
+const data = await database.collection('obra-social').find({}).toArray();
+console.dir(data, {depth: null});
+}
+
+run().then(() => disconnect().then(() => console.dir("Se finalizo la conexión.")))

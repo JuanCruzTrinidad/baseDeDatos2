@@ -16,6 +16,7 @@ var __reExport = (target, module2, desc) => {
 var __toModule = (module2) => {
   return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
 };
+var import_configdb = __toModule(require("./configdb"));
 var import_Cliente = __toModule(require("./models/Cliente"));
 var import_Domicilio = __toModule(require("./models/Domicilio"));
 var import_Empleado = __toModule(require("./models/Empleado"));
@@ -37,5 +38,10 @@ let sucursal = new import_Sucursal.default("Sucursal 1", 1, domicilio, empleadoE
 let empleadoVenta = new import_Empleado.default(1, "Empleado venta", "Apellido", 40811091, "20-40811091-3", domicilio, osde, 1234, sucursal);
 let empleadoCaja = new import_Empleado.default(1, "Empleado caja", "Apellido Cja", 1234123123, "20-1234123123-3", domicilio, osde, 12346234, sucursal);
 let ventaUno = new import_Venta.default(1, new Date(), "123123", formaDePago, empleadoCaja, empleadoVenta, cliente, [productoUno, productoDos]);
-console.dir(ventaUno, { depth: null });
+async function run() {
+  const database = await (0, import_configdb.getDatabase)();
+  const data = await database.collection("obra-social").find({}).toArray();
+  console.dir(data, { depth: null });
+}
+run().then(() => (0, import_configdb.disconnect)().then(() => console.dir("Se finalizo la conexi\xF3n.")));
 //# sourceMappingURL=index.js.map
