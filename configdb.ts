@@ -7,7 +7,7 @@ const client = new MongoClient(url);
 
 export async function getDatabase() {
   await client.connect();
-  return  client.db("tpf-db2");
+  return client.db("tpf-db2");
 }
 
 export async function disconnect() {
@@ -52,7 +52,7 @@ function createCollection(dbo: any, collection: string) {
     });
 }
 
-export async function  insert ( collection: string, value: any) {
+export async function insert (collection: string, value: any) {
   const database = await getDatabase();
   const insert = await database.collection(collection).insertOne(value)
   console.dir(insert, {depth: null});

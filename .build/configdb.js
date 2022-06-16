@@ -23,7 +23,8 @@ var __toModule = (module2) => {
 };
 __export(exports, {
   disconnect: () => disconnect,
-  getDatabase: () => getDatabase
+  getDatabase: () => getDatabase,
+  insert: () => insert
 });
 var import_mongodb = __toModule(require("mongodb"));
 var url = `mongodb+srv://dbUser:${process.env["mongodb_password"]}@cluster0.bhndm.mongodb.net/test/`;
@@ -42,12 +43,10 @@ function createCollection(dbo, collection) {
     console.log("Collection created!");
   });
 }
-function insert(dbo, collection, value) {
-  dbo.collection(collection).insertOne(value, (err, res) => {
-    if (err)
-      throw err;
-    console.log("1 document inserted");
-  });
+async function insert(collection, value) {
+  const database = await getDatabase();
+  const insert2 = await database.collection(collection).insertOne(value);
+  console.dir(insert2, { depth: null });
 }
 function find(dbo, collection, value) {
   dbo.collection(collection).find(value).toArray(function(err, res) {
@@ -62,6 +61,7 @@ function closedb(db) {
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   disconnect,
-  getDatabase
+  getDatabase,
+  insert
 });
 //# sourceMappingURL=configdb.js.map

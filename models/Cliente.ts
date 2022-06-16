@@ -1,3 +1,4 @@
+
 import Domicilio from "./Domicilio";
 import ObraSocial from "./ObraSocial";
 
@@ -8,9 +9,9 @@ class Cliente {
   dni: number;
   numeroAfiliado: number;
   domicilio: Domicilio
-  obraSocial: ObraSocial
+  obraSocial?: ObraSocial
 
-  constructor(nombre:string, id:number, apellido:string, dni:number, numeroAfiliado:number, domicilio:Domicilio, obraSocial:ObraSocial) {
+  constructor(nombre:string, id:number, apellido:string, dni:number, numeroAfiliado:number, domicilio:Domicilio, obraSocial?:ObraSocial) {
     this.nombre = nombre;
     this.id = id;
     this.apellido = apellido;
@@ -22,3 +23,16 @@ class Cliente {
 }
 
 export default Cliente;
+
+/*
+import mongoose from 'mongoose';
+const { Schema } = mongoose;
+
+const Cliente = new Schema({
+  id: Number,
+  nombre: String,
+  apellido: String,
+  domicilio: Domicilio
+});
+
+export default Cliente;*/

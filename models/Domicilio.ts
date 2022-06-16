@@ -1,3 +1,4 @@
+
 class Domicilio {
   id: number;
   calle: string;
@@ -15,3 +16,18 @@ class Domicilio {
 }
 
 export default Domicilio;
+
+/*
+import mongoose from 'mongoose';
+const { Schema } = mongoose;
+
+const domicilio = new Schema({
+  id: Number,
+  calle: String,
+  numero: String,
+  localidad: String,
+  provincia: String
+});
+
+export default domicilio;
+*/

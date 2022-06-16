@@ -17,31 +17,178 @@ var __toModule = (module2) => {
   return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
 };
 var import_configdb = __toModule(require("./configdb"));
-var import_Cliente = __toModule(require("./models/Cliente"));
-var import_Domicilio = __toModule(require("./models/Domicilio"));
-var import_Empleado = __toModule(require("./models/Empleado"));
-var import_FormaDePago = __toModule(require("./models/FormaDePago"));
-var import_Laboratorio = __toModule(require("./models/Laboratorio"));
-var import_ObraSocial = __toModule(require("./models/ObraSocial"));
-var import_Producto = __toModule(require("./models/Producto"));
-var import_Sucursal = __toModule(require("./models/Sucursal"));
-var import_Venta = __toModule(require("./models/Venta"));
-let osde = new import_ObraSocial.default("OSDE", 1);
-let domicilio = new import_Domicilio.default("Calle falsa", 1, "Localidad Falsa", "Provincia falsa", 123);
-let cliente = new import_Cliente.default("Nombre", 1, "Apellido", 4081191, 2313123, domicilio, osde);
-let laboratorio = new import_Laboratorio.default("Laboratorio Falso", 1);
-let productoUno = new import_Producto.default(1, "Tipo Falso", "Un producto falso", 200, laboratorio, 1234);
-let productoDos = new import_Producto.default(2, "Tipo Verdadero", "Un producto verdadero", 300, laboratorio, 124);
-let formaDePago = new import_FormaDePago.default("Tarjeta", 1);
-let empleadoEncargado = new import_Empleado.default(1, "Empleado Encargado", "Trinidad", 40811091, "20-40811091-3", domicilio, osde, 1111111);
-let sucursal = new import_Sucursal.default("Sucursal 1", 1, domicilio, empleadoEncargado);
-let empleadoVenta = new import_Empleado.default(1, "Empleado venta", "Apellido", 40811091, "20-40811091-3", domicilio, osde, 1234, sucursal);
-let empleadoCaja = new import_Empleado.default(1, "Empleado caja", "Apellido Cja", 1234123123, "20-1234123123-3", domicilio, osde, 12346234, sucursal);
-let ventaUno = new import_Venta.default(1, new Date(), "123123", formaDePago, empleadoCaja, empleadoVenta, cliente, [productoUno, productoDos]);
 async function run() {
   const database = await (0, import_configdb.getDatabase)();
-  const data = await database.collection("obra-social").find({}).toArray();
-  console.dir(data, { depth: null });
+  let venta = database.collection("venta");
+  await reporte7(venta);
 }
 run().then(() => (0, import_configdb.disconnect)().then(() => console.dir("Se finalizo la conexi\xF3n.")));
+const reporte1 = async (venta) => {
+  let and = [
+    { fecha: { $gt: new Date("01/01/2021") } },
+    { fecha: { $lte: new Date("01/01/2023") } }
+  ];
+  let ventaCount = await venta.count({ $and: and });
+  let sucursales = venta.aggregate([
+    { $match: { $and: and } },
+    { $group: { _id: "$empleadoCaja.sucursal.nombre", totalVentas: { $count: {} } } },
+    { $sort: { totalVentas: -1 } }
+  ]);
+  let sucursalesArray = [];
+  while (await sucursales.hasNext()) {
+    sucursalesArray.push(await sucursales.next());
+  }
+  const reporte12 = { "Total Ventas": ventaCount, "Ventas Por Sucursal": sucursalesArray };
+  console.log("Reporte 1");
+  console.log(reporte12);
+};
+const reporte2 = async (venta) => {
+  let and = [
+    { fecha: { $gt: new Date("01/01/2021") } },
+    { fecha: { $lte: new Date("01/01/2023") } }
+  ];
+  let ventaPorObraSocial = venta.aggregate([
+    { $match: { $and: and } },
+    { $group: { _id: "$cliente.obraSocial.id", nombreObraSocial: { $first: "$cliente.obraSocial.nombre" }, total: { $count: {} } } },
+    { $sort: { total: -1 } }
+  ]);
+  let ventaPorObraSocialArray = [];
+  while (await ventaPorObraSocial.hasNext()) {
+    let venta2 = await ventaPorObraSocial.next();
+    if ((venta2 == null ? void 0 : venta2._id) === null) {
+      venta2.nombreObraSocial = "Privado";
+    }
+    ventaPorObraSocialArray.push(venta2);
+  }
+  console.log(ventaPorObraSocialArray);
+};
+const reporte3 = async (venta) => {
+  var _a;
+  let and = [
+    { fecha: { $gt: new Date("01/01/2021") } },
+    { fecha: { $lte: new Date("01/01/2023") } }
+  ];
+  let totalVentas = venta.aggregate([
+    { $match: { $and: and } },
+    { $group: { _id: null, sum: { $sum: "$total" } } }
+  ]);
+  let total = (_a = await totalVentas.next()) == null ? void 0 : _a.sum;
+  let totalPorSucursal = venta.aggregate([
+    { $match: { $and: and } },
+    { $group: { _id: "$empleadoCaja.sucursal.nombre", totalVentas$: { $sum: "$total" } } },
+    { $sort: { totalVentas: -1 } }
+  ]);
+  let totalPorSucursalArray = [];
+  while (await totalPorSucursal.hasNext()) {
+    totalPorSucursalArray.push(await totalPorSucursal.next());
+  }
+  const reporte32 = { "Total Ventas $": total, "Sucursales": totalPorSucursalArray };
+  console.log(reporte32);
+};
+const reporte4 = async (venta) => {
+  let and = [
+    { fecha: { $gt: new Date("01/01/2021") } },
+    { fecha: { $lte: new Date("01/01/2023") } }
+  ];
+  let ventasPorTipo = venta.aggregate([
+    { $match: { $and: and } },
+    { $unwind: "$productos" },
+    {
+      $group: {
+        _id: "$productos.tipo",
+        totalVentas: { $count: {} }
+      }
+    },
+    { $sort: { totalVentas: -1 } }
+  ]);
+  let ventasPorTipoArray = [];
+  while (await ventasPorTipo.hasNext()) {
+    ventasPorTipoArray.push(await ventasPorTipo.next());
+  }
+  console.log("Reporte 4");
+  console.log(ventasPorTipoArray);
+};
+const reporte5 = async (venta) => {
+  let rankingMontoPorProductoSucursal = venta.aggregate([
+    { $unwind: "$productos" },
+    {
+      $group: {
+        _id: {
+          producto: "$productos.descripcion",
+          sucursal: "$empleadoCaja.sucursal.nombre"
+        },
+        totalVentas: { $sum: "$total" }
+      }
+    },
+    { $sort: { totalVentas: -1 } }
+  ]);
+  let data = [];
+  while (await rankingMontoPorProductoSucursal.hasNext()) {
+    data.push(await rankingMontoPorProductoSucursal.next());
+  }
+  console.log("Reporte 5");
+  console.log(data);
+};
+const reporte6 = async (venta) => {
+  let rankingCantidadPorProductoSucursal = venta.aggregate([
+    { $unwind: "$productos" },
+    {
+      $group: {
+        _id: {
+          producto: "$productos.descripcion",
+          sucursal: "$empleadoCaja.sucursal.nombre"
+        },
+        totalVentas: { $count: {} }
+      }
+    },
+    { $sort: { totalVentas: -1 } }
+  ]);
+  let data = [];
+  while (await rankingCantidadPorProductoSucursal.hasNext()) {
+    data.push(await rankingCantidadPorProductoSucursal.next());
+  }
+  console.log("Reporte 6");
+  console.log(data);
+};
+const reporte7 = async (venta) => {
+  let rankingCantidadClientes = venta.aggregate([
+    {
+      $group: {
+        _id: {
+          clienteDni: "$cliente.dni",
+          clienteNombre: "$cliente.nombre",
+          clienteApellido: "$cliente.apellido"
+        },
+        totalVentas: { $count: {} }
+      }
+    },
+    { $sort: { totalVentas: -1 } }
+  ]);
+  let data = [];
+  while (await rankingCantidadClientes.hasNext()) {
+    data.push(await rankingCantidadClientes.next());
+  }
+  console.log("Reporte 7");
+  console.log(data);
+};
+const reporte8 = async (venta) => {
+  let rankingCantidadClientes = venta.aggregate([
+    {
+      $group: {
+        _id: {
+          clienteDni: "$cliente.dni",
+          sucursal: "$empleadoCaja.sucursal.nombre"
+        },
+        totalVentas: { $count: {} }
+      }
+    },
+    { $sort: { totalVentas: -1 } }
+  ]);
+  let data = [];
+  while (await rankingCantidadClientes.hasNext()) {
+    data.push(await rankingCantidadClientes.next());
+  }
+  console.log("Reporte 8");
+  console.log(data);
+};
 //# sourceMappingURL=index.js.map

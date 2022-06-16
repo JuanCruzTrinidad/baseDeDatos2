@@ -4,7 +4,6 @@ import FormaDePago from "./FormaDePago";
 import Producto from "./Producto";
 
 class Venta {
-  id: number;
   fecha: Date;
   numTicket: string;
   total?: number;
@@ -14,8 +13,7 @@ class Venta {
   cliente: Cliente;
   productos: Producto[];
 
-  constructor(id: number, fecha: Date, numTicket: string, formaDePago: FormaDePago, empleadoCaja: Empleado, empleadoAsistente: Empleado, cliente: Cliente, productos: Producto[], total?: number) {
-    this.id = id;
+  constructor(fecha: Date, numTicket: string, formaDePago: FormaDePago, empleadoCaja: Empleado, empleadoAsistente: Empleado, cliente: Cliente, productos: Producto[], total?: number) {
     this.fecha = fecha;
     this.numTicket = numTicket;
     this.total = total;

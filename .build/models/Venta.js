@@ -9,7 +9,6 @@ __export(exports, {
   default: () => Venta_default
 });
 class Venta {
-  id;
   fecha;
   numTicket;
   total;
@@ -18,8 +17,7 @@ class Venta {
   empleadoAsistente;
   cliente;
   productos;
-  constructor(id, fecha, numTicket, formaDePago, empleadoCaja, empleadoAsistente, cliente, productos, total) {
-    this.id = id;
+  constructor(fecha, numTicket, formaDePago, empleadoCaja, empleadoAsistente, cliente, productos, total) {
     this.fecha = fecha;
     this.numTicket = numTicket;
     this.total = total;

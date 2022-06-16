@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../models/Domicilio.ts"],
-  "sourcesContent": ["class Domicilio {\n  id: number;\n  calle: string;\n  numero: number;\n  localidad: string;\n  provincia: string;\n\n  constructor(calle:string, id:number, localidad:string, provincia:string, numero:number) {\n    this.calle = calle;\n    this.id = id;\n    this.numero = numero;\n    this.localidad = localidad;\n    this.provincia = provincia;\n  }\n}\n\nexport default Domicilio;"],
-  "mappings": ";;;;;;;AAAA;AAAA;AAAA;AAAA,gBAAgB;AAAA,EACd;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EAEA,YAAY,OAAc,IAAW,WAAkB,WAAkB,QAAe;AACtF,SAAK,QAAQ;AACb,SAAK,KAAK;AACV,SAAK,SAAS;AACd,SAAK,YAAY;AACjB,SAAK,YAAY;AAAA;AAAA;AAIrB,IAAO,oBAAQ;",
+  "sourcesContent": ["\nclass Domicilio {\n  id: number;\n  calle: string;\n  numero: number;\n  localidad: string;\n  provincia: string;\n\n  constructor(calle:string, id:number, localidad:string, provincia:string, numero:number) {\n    this.calle = calle;\n    this.id = id;\n    this.numero = numero;\n    this.localidad = localidad;\n    this.provincia = provincia;\n  }\n}\n\nexport default Domicilio;\n\n/*\nimport mongoose from 'mongoose';\nconst { Schema } = mongoose;\n\nconst domicilio = new Schema({\n  id: Number,\n  calle: String,\n  numero: String,\n  localidad: String,\n  provincia: String\n});\n\nexport default domicilio;\n*/"],
+  "mappings": ";;;;;;;AAAA;AAAA;AAAA;AACA,gBAAgB;AAAA,EACd;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EAEA,YAAY,OAAc,IAAW,WAAkB,WAAkB,QAAe;AACtF,SAAK,QAAQ;AACb,SAAK,KAAK;AACV,SAAK,SAAS;AACd,SAAK,YAAY;AACjB,SAAK,YAAY;AAAA;AAAA;AAIrB,IAAO,oBAAQ;",
   "names": []
 }
