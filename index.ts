@@ -3,8 +3,15 @@ import { disconnect, getDatabase, insert } from "./configdb";
 async function run() {
   const database = await getDatabase();
   let venta = database.collection("venta");
-  
- await reporte7(venta);
+
+ // await reporte1(venta);
+ // await reporte2(venta);
+ // await reporte3(venta);
+ // await reporte4(venta);
+ // await reporte5(venta);
+ // await reporte6(venta);
+ // await reporte7(venta);
+ await reporte8(venta);
 
 // const data = await database.collection('obra-social').find({}).toArray();
 // console.log(data, {depth: null});
